@@ -9,7 +9,7 @@
     width: fit-content;
     min-width: 300px;
     padding: 20px;
-    background-color: rgba(76, 184, 192, 0.559);
+    background-color: rgba(85, 143, 198, 0.589);
     color: black;
     font-size: 16px;
     font-weight: bold;
@@ -22,9 +22,14 @@
 
 }
 
-img {
-    width: 100px;
-    height: 100px;
+.post-card:hover {
+    background-color: rgb(85, 143, 198);
+
+}
+
+.img {
+    width: 10rem;
+    height: 10rem;
     border-radius: 50%;
 }
 

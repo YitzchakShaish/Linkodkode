@@ -1,0 +1,21 @@
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    border: 1px solid red;
+    background-color: white;
+    z-index: 1000;
+    background-color: rgb(194 218 241);
+    border-radius: 8px;
+}
+
+body {
+    margin-top: 150px;
+}

@@ -1,6 +1,6 @@
-import type { PostTipe } from "../types"
+import type { TipePost } from "../types"
 import "./Post.css"
-export default function Post(post: PostTipe) {
+export default function Post(post: TipePost) {
     return (
         <>
             <div className="post-card">
