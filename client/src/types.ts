@@ -1,4 +1,5 @@
-export type Post = {
+export type PostTipe = {
+    id: number,
     urlToImg: string,
     description: string,
     likes: string,
