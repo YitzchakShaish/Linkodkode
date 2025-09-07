@@ -1,0 +1,75 @@
+.post-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+    height: fit-content;
+    min-height: 400px;
+    width: fit-content;
+    min-width: 500px;
+    padding: 20px;
+    background-color: rgba(76, 184, 192, 0.559);
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    font-family: "Story Script", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    min-height: 100px;
+    width: fit-content;
+    min-width: 200px;
+    padding: 20px;
+    background-color: rgba(41, 160, 168, 0.24);
+    border: .8 solid rgba(41, 160, 168, 0.559);
+    border-radius: 12px;
+    font-size: larger;
+}
+
+.posters-name {
+    font-size: 30px;
+
+}
+
+
+.likes {
+    border: .5px solid white;
+    border-radius: 5px;
+    /* background-color: red; */
+}
+
+.time-posting {}
+
+
+@media (max-width: 600px) {
+    .post-card {
+        min-width: 300px;
+
+
+    }
+}
+
+@media (max-width: 300px) {
+    .post-card {
+        min-width: none;
+
+    }
+}
