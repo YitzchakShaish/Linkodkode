@@ -5,7 +5,7 @@ export default function Post(post: TipePost) {
         <>
             <div className="post-card">
                 <p className="posters-name">{post.postersName}</p>
-                <img className="img" src="https://masseduequity.org/wp-content/uploads/2021/07/Meeting-Students-Where-they-are-0.jpg" alt="student" />
+                <img className="img" src={`http://localhost:3000/${post.urlToImg}.png`} alt="student" />
              <div  className="description">
                  <h4>Description:</h4>
                  <p>{post.description}</p>

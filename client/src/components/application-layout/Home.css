@@ -1,6 +1,6 @@
 
 
-header {
+.header {
     position: fixed;
     top: 0;
     left: 0;
@@ -16,6 +16,6 @@ header {
     border-radius: 8px;
 }
 
-body {
+.contente {
     margin-top: 150px;
 }

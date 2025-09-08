@@ -6,13 +6,13 @@ import "./Home.css"
 export default function Home() {
     return (
         <>
-            <header>
+            <div className="header">
                 <Logo></Logo>
                 <Slogan></Slogan>
-            </header>
-            <body>
+            </div>
+            <div className="contente">
                 <ContentPosts />
-            </body>
+            </div>
         </>
 
     )
