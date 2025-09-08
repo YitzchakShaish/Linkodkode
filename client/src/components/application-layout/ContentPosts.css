@@ -30,3 +30,20 @@ body {
     border: 1px solid green;
 
 }
+
+.message {
+    font-size: 2rem;
+    color: blue;
+    background-color: rgba(255, 255, 0, 0.34);
+    text-align: center;
+    border-radius: 10px;
+
+}
+
+.server-error-message {
+    color: red;
+}
+
+.post-loading-notification {
+    color: blue;
+}
