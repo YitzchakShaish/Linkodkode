@@ -41,7 +41,8 @@ export const getPostById = async (req, res) => {
 
   try {
     const post = await getPostByIdFDB(id);
-    if (!post) return res.status(404).json({ error: "post not found" });
+    console.log(post)
+    if (!post.success) return res.status(404).json({ error: "post not found" });
     res.status(200).json(post.data);
   } catch (err) {
     res.status(500).json({ error: err.message });

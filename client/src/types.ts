@@ -1,10 +1,11 @@
 export type TipePost = {
-    id: number,
+    ownerID: number,
     urlToImg: string,
     description: string,
     likes: string,
     postersName: string,
-    timePosting: string
+    timePosting: string,
+    _id: string
 }
 
 export type CounterLike = {

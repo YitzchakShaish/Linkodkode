@@ -39,13 +39,14 @@ export default function ContentPosts() {
             <div className="home-posts">
                 <div className="posts-container">
                     {postsFDB.map(p => (
-                        < Post key={p.id}
-                            id={p.id}
+                        < Post key={p._id}
+                            _id={p._id}
                             postersName={p.postersName}
                             description={p.description}
                             urlToImg={p.urlToImg}
                             likes={p.likes}
                             timePosting={p.timePosting}
+                            ownerID={p.ownerID}
                         />
                     ))}
                 </div>

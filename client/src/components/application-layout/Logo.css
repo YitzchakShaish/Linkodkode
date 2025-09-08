@@ -2,6 +2,7 @@
     width: 7rem;
     height: 7rem;
     border-radius: 20%;
+    cursor: pointer;
 }
 
 @media (max-width: 900px) {
