@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { connectToDatabase } from "../DB/postsDB.js";
+import { connectToDatabase } from "../DB/LinkodkodeDB.js";
 
 
 // Connect to the posts collection
