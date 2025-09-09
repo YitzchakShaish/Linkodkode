@@ -1,3 +1,12 @@
+.post-page {
+    background-image: url("../assets/background1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    max-height: fit-content;
+    max-width: 100vw;
+}
 
 .message {
     font-size: 2rem;
@@ -14,6 +23,7 @@
 .post-loading-notification {
     color: blue;
 }
+
 .id-error-message {
     color: orange;
 

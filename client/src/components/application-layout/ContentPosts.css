@@ -37,7 +37,13 @@ body {
     background-color: rgba(255, 255, 0, 0.34);
     text-align: center;
     border-radius: 10px;
-
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1000;
 }
 
 .server-error-message {

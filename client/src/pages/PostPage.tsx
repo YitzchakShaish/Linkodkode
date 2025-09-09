@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import type { TipePost } from '../types';
+import type { TypePost } from '../types';
 import Post from '../components/Post';
 import { getPostById } from '../api/postsApi';
 import "./PostPage.css"
+import Loading from "../assets/Loading.mp4"
+
 
 export default function PostPage() {
     // useParams() returns an object with key-value pairs for the URL parameters.
@@ -11,7 +13,7 @@ export default function PostPage() {
 
 
 
-    const [postFDB, setPostFDB] = useState<TipePost>({ _id: '', urlToImg: '', description: '', likes: '', postersName: '', timePosting: '', ownerID: 0 });
+    const [postFDB, setPostFDB] = useState<TypePost>({ _id: '', urlToImg: '', description: '', likes: '', postersName: '', timePosting: '', ownerID: 0 });
     const [errorMessage, setErrorMessage] = useState('');
     const [loadingMessage, setLoadingMessage] = useState('Loading post... Please wait patiently...');
 
@@ -20,9 +22,17 @@ export default function PostPage() {
             const response = await getPostById(id!);
             if (response.status === 404) {
                 setErrorMessage("Post not found")
+
+                //Error/success messages will be displayed for 2 seconds in the center of the screen.
+                setTimeout(() => {
+                    setErrorMessage("");
+                }, 2000);
             }
             if (response.status === 500) {
                 setErrorMessage("Error: Server error. Post not loaded :(")
+                setTimeout(() => {
+                    setErrorMessage("");
+                }, 2000);
             }
             const post = await response.json();
             console.log(response)
@@ -31,27 +41,25 @@ export default function PostPage() {
         } catch (error) {
             console.log(error)
             setErrorMessage("Error: Server error. Post not loaded :(")
+            setTimeout(() => {
+                setErrorMessage("");
+            }, 2000);
         }
     }
     useEffect(() => {
         LoadPost()
     }, [])
-    if (!id || id.length < 24) {
-        return <p className="message id-error-message">The ID is not found or is invalid. (id must be 24 characters).</p>
-    }
-
-    if (errorMessage) {
-        return <p className="message server-error-message">{errorMessage}</p>
-    }
-
-    if (loadingMessage) {
-        return <p className="message post-loading-notification">{loadingMessage}</p>
-    }
 
 
     return (
         <>
-            <div className="post">
+            <div className="post-page">
+                {/* //Error/success messages will be displayed for 2 seconds in the center of the screen. */}
+                {(!id || id.length < 24) && <p className="message id-error-message">The ID is not found or is invalid. (id must be 24 characters).</p>}
+
+                {errorMessage && <p className="message server-error-message">{errorMessage}</p>}
+
+                {loadingMessage && <p className="message post-loading-notification">{loadingMessage}</p> && <video className="massage" src={Loading} width={200}></video>}
                 <div className="posts-container">
                     <Post _id={postFDB._id}
                         postersName={postFDB.postersName}

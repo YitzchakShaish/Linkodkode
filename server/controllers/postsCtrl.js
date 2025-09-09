@@ -8,10 +8,10 @@ import { deletePostFDB, getAllPostsFDB, getPostByIdFDB, insertNewPostTDB, update
 
 
 export const createNewPost = async (req, res) => {
-  const { postersName, description, timePosting, id, urlToImg, likes } = req.body;
+  const { postersName, description, timePosting, id, urlToImg } = req.body;
 
   try {
-    const created = await insertNewPostTDB({ postersName, description, timePosting, id, urlToImg, likes });
+    const created = await insertNewPostTDB({ postersName, description, timePosting, id, urlToImg, likes: null });
     res.status(201).json(created);
   } catch (err) {
     res.status(500).json({ error: err.message });

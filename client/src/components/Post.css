@@ -42,11 +42,17 @@
     min-height: 100px;
     width: fit-content;
     min-width: 200px;
+    max-width: 250px;
     padding: 20px;
     background-color: rgba(41, 160, 168, 0.24);
     border: .8 solid rgba(41, 160, 168, 0.559);
     border-radius: 12px;
     font-size: larger;
+}
+.card-text {
+    max-width: 250px;
+    word-wrap: break-word; /* Ensures long words break */
+    white-space: normal; /* Allows normal line breaks */
 }
 
 .posters-name {

@@ -7,9 +7,7 @@ import type { TypeCreatePost } from "../types";
 // It returns a promise that resolves to an array of post objects
 export async function getAllPosts() {
   const response = await fetch("http://localhost:3000/posts");
-  const posts = await response.json();
-  //console.log("Show all posts:", posts);
-  return posts;
+  return response;
 
 }
 
@@ -27,7 +25,7 @@ export async function getPostById(id: string) {
 // It takes the post name, task description, and correct answer as parameters
 
 
-export async function creatPost(newPost: TypeCreatePost) {
+export async function createPost(newPost: TypeCreatePost) {
 
   const res = await fetch("http://localhost:3000/posts", {
     method: 'POST',

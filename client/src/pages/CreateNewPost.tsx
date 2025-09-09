@@ -1,32 +1,53 @@
 import { useState, type FormEvent } from "react";
 import type { TypeCreatePost } from "../types";
-import { creatPost } from "../api/postsApi";
+import { createPost } from "../api/postsApi";
 import "./CreateNewPost.css"
 
 export default function CreateNewPost() {
 
   const [newPost, setNewPost] = useState<TypeCreatePost>({ urlToImg: '', description: '', postersName: '', timePosting: '', ownerID: -1 });
-  // const [sent, setSent] = useState(false);
+  const [sent, setSent] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [successMessage, SetSuccessMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
 
 
 
   async function sendPost() {
 
-    console.log(newPost)
+    const postToSend = {
+      ...newPost,
+      urlToImg: String(newPost.ownerID),
+      timePosting: String((new Date()).toLocaleString())
+    };
+    console.log(postToSend)
+    setNewPost(postToSend)
     try {
-      const response = await creatPost(newPost);
+      const response = await createPost(postToSend);
 
       if (response.status === 201) {
-        SetSuccessMessage("The post was added successfully.")
+
+        //Error/success messages will be displayed for 2 seconds in the center of the screen.
+        setSuccessMessage("The post was added successfully.")
+        setTimeout(() => {
+          setSuccessMessage("");
+        }, 2000);
+
+        //After successfully submitting a post.
+        // I delete the entire post to allow for a new post to be submitted.
+        setNewPost({ urlToImg: '', description: '', postersName: '', timePosting: '', ownerID: -1 })
       }
       if (response.status === 400) {
         setErrorMessage("Invalid or Error: All three fields must be added: postersName, description, timePosting")
+        setTimeout(() => {
+          setErrorMessage("");
+        }, 2000);
       }
       if (response.status === 500) {
-        setErrorMessage("Error: Server error. Post not sent. Please try again later.")
+        setErrorMessage("Server error: Post not sent. Please try again later.")
+        setTimeout(() => {
+          setErrorMessage("");
+        }, 2000);
       }
       const post = await response.json();
       console.log(response)
@@ -34,38 +55,34 @@ export default function CreateNewPost() {
 
     } catch (error) {
       console.log(error)
-      setErrorMessage("Error: Server error. Post not sent. Please try again later.")
+      setErrorMessage("Server error: Post not sent. Please try again later.")
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 2000);
+    }
+    finally {
+      setSent(false)
     }
   }
 
   function handleSubmit(e: FormEvent) {
-    // e.preventDefault();
-    setNewPost((prev) => {
-      return { ...prev, urlToImg: newPost.ownerID.toString(), timePosting: (new Date()).toLocaleString().toString() }
-
-    })
-
-    // setNewPost((prev) => ({
-    //   ...prev,
-    //   urlToImg: String(newPost.ownerID),
-    //   timePosting: String((new Date()).toLocaleString())
-    // }))
-    console.log(newPost)
-
+    e.preventDefault();
+    setSent(true)
     sendPost()
   };
 
 
-  if (errorMessage) {
-    return <p className="message server-error-message">{errorMessage}</p>
-  }
+
 
   return (
     <div className="post-form-container">
-
+      {/* //Error/success messages will be displayed for 2 seconds in the center of the screen. */}
+      {errorMessage && <p className="message server-error-message">{errorMessage}</p>}
+      {successMessage && <p className="message ">{successMessage}</p>}
 
       <form onSubmit={handleSubmit} className="add-post-form" >
         <label >Enter your name:
+          <br />
           <input
             type="text"
             placeholder="postrs name"
@@ -77,6 +94,7 @@ export default function CreateNewPost() {
         </label>
 
         <label >Enter your id:
+          <br />
           <input
             type="number"
             placeholder="postrs id"
@@ -94,7 +112,7 @@ export default function CreateNewPost() {
             minLength={20}
           />
         </label>
-        <button type="submit">Create Post</button>
+        <button type="submit">{!sent ? <>Create Post</> : <>Created</>}</button>
       </form>
     </div>
   );

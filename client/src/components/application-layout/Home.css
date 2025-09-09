@@ -1,5 +1,3 @@
-
-
 .header {
     position: fixed;
     top: 0;
@@ -10,12 +8,24 @@
     align-items: center;
     margin: 10px;
     border: 1px solid red;
-    background-color: white;
     z-index: 1000;
     background-color: rgb(194 218 241);
     border-radius: 8px;
 }
 
 .contente {
-    margin-top: 150px;
+    margin-top: 140px;
+}
+
+.create-new-post {
+    background-color: rgb(194 218 241);
+    border: none;
+    cursor: pointer;
+
+}
+
+.create-new-post img {
+    width: 7rem;
+    background-color: rgb(194 218 241);
+
 }

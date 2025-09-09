@@ -1,13 +1,9 @@
 .post-form-container {
     display: flex;
     justify-content: center;
-    /* Centers horizontally */
     align-items: center;
-    /* Centers vertically */
-    min-height: 80vh;
-    /* Ensures container takes up enough height */
-    background-color: #f0f2f5;
-    /* Light background for the page */
+    min-height: 100vh;
+    background-image: url("../assets/background3.png");
 }
 
 .add-post-form {
@@ -15,46 +11,46 @@
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
-    /* Limits form width */
+    max-width: 60vw;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    /* Spacing between form elements */
-    display: flex;
     justify-content: center;
-    /* Centers horizontally */
     align-items: center;
-    /* Centers vertically */
-    min-height: 80vh;
-    /* Ensures container takes up enough height */
-    background-color: #f0f2f5;
-    /* Light background for the page */
+    background-color: #c4d2e8;
 }
 
+
 .add-post-form label {
+    
+    text-align: center;
     font-weight: bold;
     color: #333;
 }
 
-.add-post-form input[type="text"],
+.add-post-form input,
 .add-post-form textarea {
-    width: calc(100% - 20px);
-    /* Adjust for padding */
+    width: 40vw;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #e3dbdb;
     border-radius: 5px;
     font-size: 16px;
+    resize: vertical;
 }
+
+/* .add-post-form input[type="number"] {
+    max-width: 40px;
+} */
 
 .add-post-form textarea {
     min-height: 120px;
+    max-height: 200px;
     resize: vertical;
 }
 
 .add-post-form button {
-    background-color: #007bff;
+    background-color: rgb(179 236 251);
     color: white;
     padding: 12px 20px;
     border: none;
@@ -65,5 +61,5 @@
 }
 
 .add-post-form button:hover {
-    background-color: #0056b3;
+    background-color: rgb(110, 197, 219)
 }
