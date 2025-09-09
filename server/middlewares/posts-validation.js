@@ -2,7 +2,7 @@
 //A function that verifies receipt of the required fields for creating a new post,
 //  or updating an existing post.
 
-export function validatePosts(req, res, next) {
+export  function validatePosts(req, res, next) {
     if (!req.body) {
         return res.status(400).json({ message: 'Invalid or Error: All three fields must be added: postersName, description, timePosting' });
     }

@@ -1,4 +1,4 @@
-export type TipePost = {
+export type TypePost = {
     ownerID: number,
     urlToImg: string,
     description: string,
@@ -6,6 +6,14 @@ export type TipePost = {
     postersName: string,
     timePosting: string,
     _id: string
+}
+
+export type TypeCreatePost = {
+    ownerID: number,
+    urlToImg: string,
+    description: string,
+    postersName: string,
+    timePosting: string,
 }
 
 export type CounterLike = {
