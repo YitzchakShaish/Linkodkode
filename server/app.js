@@ -3,6 +3,8 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import { config } from "dotenv";
 import postsRouter from "./routers/postsRouter.js"
+import authRouter from "./routers/authRouter.js"
+
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -11,7 +13,6 @@ config()
 const PORT = process.env.PORT || 8080;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
 
 const app = express();
 
@@ -28,6 +29,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/posts", postsRouter);
+
+app.use("/auth", authRouter)
 
 // Error handling middleware
 app.use((req, res) => {
