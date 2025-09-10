@@ -1,5 +1,5 @@
 import { getUserByNameFDB, insertNewUserTDB } from '../DAL/usersDAL.js';
-import { comparePassword, generateToken, hashPassword } from '../utils/authUtils.js';
+import { comparePassword, generateToken, hashPassword } from '../services/authServices.js';
 
 export async function signup(req, res) {
     const { username, password, role } = req.body;

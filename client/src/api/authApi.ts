@@ -59,3 +59,14 @@ export async function logoutTS() {
 }
 
 
+//A function that adds cookies to patch requests so that the token is sent properly.
+export async function authFetch(url: string, options: RequestInit = {}) {
+  return fetch(url, {
+    ...options,
+    headers: {
+      ...(options.headers || {}),
+      'Content-Type': 'application/json',
+    },
+    credentials: "include"
+  });
+}

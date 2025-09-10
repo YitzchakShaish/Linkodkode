@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import jwt from 'jsonwebtoken';
 
-import { hashPassword, comparePassword, generateToken } from '../utils/authUtils.js';
+import { hashPassword, comparePassword, generateToken } from '../services/authServices.js';
 
 const secrate = process.env.JWT_SECRET || "secratesecratesecrate"
 

@@ -58,7 +58,7 @@ export default function ContentPosts() {
                 {errorMessage && <p className="message server-error-message">{errorMessage}</p>}
                 {loadingMessage && <p className="message post-loading-notification">{loadingMessage}</p> && <video className="massage" src={Loading} width={200}></video>}
                 <div className="posts-container">
-                    {postsFDB.map(p => (
+                    {postsFDB?.map(p => (
                         < Post key={p._id}
                             _id={p._id}
                             postersName={p.postersName}
