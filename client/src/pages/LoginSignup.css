@@ -1,0 +1,77 @@
+ .login-form-container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+     background-image: url("../assets/background11.png");
+     mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+
+ }
+
+ .singup-form-container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+     background-image: url("../assets/background4.png");
+     mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+
+ }
+
+ .add-account-form {
+     background-color: #ffffff;
+     padding: 40px;
+     border-radius: 10px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     max-width: 60vw;
+     min-height: 80vh;
+     display: flex;
+     flex-direction: column;
+     gap: 20px;
+     justify-content: center;
+     align-items: center;
+     background-color: #c4d2e8;
+ }
+
+
+ .add-account-form label {
+
+     text-align: center;
+     font-weight: bold;
+     color: #333;
+ }
+
+ .add-account-form input,
+ .add-account-form textarea {
+     width: 40vw;
+     padding: 10px;
+     border: 1px solid #e3dbdb;
+     border-radius: 5px;
+     font-size: 16px;
+     resize: vertical;
+ }
+
+ /* .add-account-form input[type="number"] {
+    max-width: 40px;
+} */
+
+ .add-account-form textarea {
+     min-height: 120px;
+     max-height: 200px;
+     resize: vertical;
+ }
+
+ .add-account-form button {
+     background-color: rgb(179 236 251);
+     color: white;
+     padding: 12px 20px;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     font-size: 18px;
+     transition: background-color 0.3s ease;
+ }
+
+ .add-account-form button:hover {
+     background-color: rgb(110, 197, 219)
+ }

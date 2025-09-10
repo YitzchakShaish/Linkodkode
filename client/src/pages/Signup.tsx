@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
 import { signupTS } from "../api/authApi";
+import "./LoginSignup.css"
+
 
 
 export default function Signup() {
@@ -42,15 +44,17 @@ export default function Signup() {
         }
     }
     return (
-        <div className="signup-page">
-            <form className="form sginup-form"
+        <div className="singup-form-container">
+            <form className="add-account-form"
                 onSubmit={(e) => {
                     e.preventDefault();
                     sign();
                 }}
             >
-                <div className="fild">
+                <label >
                     <strong>user name: </strong>
+                    <br />
+                    <br />
                     <input
                         type="text"
                         onChange={(e) => (userRef.current.name = e.target.value)}
@@ -58,10 +62,13 @@ export default function Signup() {
                         required
                         minLength={4}
                     />
-                </div>
+                </label>
 
-                <div className="fild">
+
+                <label >
                     <strong>password: </strong>
+                    <br />
+                    <br />
                     <input
                         type="password"
                         onChange={(e) => (userRef.current.password = e.target.value)}
@@ -69,18 +76,15 @@ export default function Signup() {
                         required
                         minLength={4}
                     />
-                </div>
+                </label>
 
-                <div className="signup-buttons">
-                    <button type="submit" className="button">
-                        Signup
-                    </button>
 
-                </div>
+                <button type="submit" >
+                    Signup
+                </button>
             </form>
-            <Link to="/" className="button-home button">
-                Back to Home
-            </Link>
+
+
             <div>{message && <p className="message login-message">{message}</p>}</div>
             <div>{time != 0 && <button className="message" onClick={() => {
                 console.log(time)

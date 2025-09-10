@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { loginTS } from "../api/authApi";
 import { UserContext } from "../AppRoutes";
 import { useNavigate } from "react-router";
-
+import "./LoginSignup.css"
 
 
 
@@ -50,13 +50,13 @@ export default function Login() {
             return true;
         } else if (response.status === 401) {
             setMessage("Invalid credentials");
-               setTimeout(() => {
+            setTimeout(() => {
                 setMessage('')
             }, 2000)
             return null;
         } else {
             setMessage("Login failed");
-               setTimeout(() => {
+            setTimeout(() => {
                 setMessage('')
             }, 2000)
             return null;
@@ -64,15 +64,16 @@ export default function Login() {
     }
 
     return (
-        <div className="login-page">
-            <form className="form login-form"
+        <div className="login-form-container">
+            <form className="add-account-form"
                 onSubmit={(e) => {
                     e.preventDefault();
                     login();
                 }}
             >
-                <div className="fild">
+                <label >
                     <strong>user name: </strong>
+                    <br /><br />
                     <input
                         type="text"
                         onChange={(e) => (userRef.current.name = e.target.value)}
@@ -80,10 +81,11 @@ export default function Login() {
                         required
                         minLength={4}
                     />
-                </div>
+                </label>
 
-                <div className="fild">
+                <label >
                     <strong>password: </strong>
+                    <br /><br />
                     <input
                         type="password"
                         onChange={(e) => (userRef.current.password = e.target.value)}
@@ -91,18 +93,14 @@ export default function Login() {
                         required
                         minLength={4}
                     />
-                </div>
+                </label>
 
-                <div className="login-buttons">
-                    <button type="submit" className="button">
-                        Login
-                    </button>
 
-                </div>
+                <button type="submit" >
+                    Login
+                </button>
             </form>
-            <Link to="/" className="button-home button">
-                Back to Home
-            </Link>
+
 
             <div>{message && <p className="message login-message">{message}</p>}</div>
         </div>
