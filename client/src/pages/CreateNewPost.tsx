@@ -77,7 +77,9 @@ export default function CreateNewPost() {
   return (
     <div className="post-form-container">
       {/* //Error/success messages will be displayed for 2 seconds in the center of the screen. */}
-      {errorMessage && <p className="message server-error-message">{errorMessage}</p>}
+      {errorMessage && <p className="message server-error-message">{errorMessage}</p>&& setTimeout(() => {
+        setErrorMessage('')
+      }, 2000)}
       {successMessage && <p className="message ">{successMessage}</p>}
 
       <form onSubmit={handleSubmit} className="add-post-form" >

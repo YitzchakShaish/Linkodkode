@@ -11,7 +11,7 @@ export const createNewPost = async (req, res) => {
   const { postersName, description, timePosting, id, urlToImg } = req.body;
 
   try {
-    const created = await insertNewPostTDB({ postersName, description, timePosting, id, urlToImg, likes: null });
+    const created = await insertNewPostTDB({ postersName, description, timePosting, id, urlToImg, likes });
     res.status(201).json(created);
   } catch (err) {
     res.status(500).json({ error: err.message });

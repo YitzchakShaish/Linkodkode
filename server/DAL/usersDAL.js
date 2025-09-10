@@ -72,7 +72,9 @@ export async function insertNewUserTDB(user) {
     const usersCollection = await connectToUsersCollection();
 
     try {
+        console.log(user);
         const result = await usersCollection.insertOne(user);
+        console.log("resule: " +result)
 
         if (!result.acknowledged) {
             return { success: false, data: null, error: 'Insert failed' };

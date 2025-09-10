@@ -28,3 +28,9 @@ export type TypeLike = {
     name: "Like" | "Dislike" | "Sad" | "Happy"; emoji: string
 };
 
+export type User = {
+  name: string | null;
+  id: number | null;
+  token: string | null;
+};
+
